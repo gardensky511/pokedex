@@ -19,14 +19,13 @@ export type PokemonListState = {
 /**
  * @description ポケモンリストの型
  */
-export type PokemonList = Array<PokemonListItem>;
-
-/**
- * @description ポケモンリスト要素の型
- * @param name - ポケモンの名前
- * @param url - 詳細URL
- */
-export type PokemonListItem = {
+export type PokemonList = Array<{
   name: string;
   url: string;
-};
+}>;
+
+export type FormattedPokemonList = Array<{
+  name: string;
+  imageUrl: string;
+  id: number;
+}>;
