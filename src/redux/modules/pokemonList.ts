@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ThunkAPI } from '../../declarations/const';
-import { getPokemonList } from '../../services/pokemonList';
+import { getPokemonList } from '../../services/getPokemonList';
 import { GetPokemonListResponse, PokemonListState } from '../../components/pages/Home/declarations';
 
 export const fetchPokemonList = createAsyncThunk<GetPokemonListResponse, undefined, ThunkAPI>(
