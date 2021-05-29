@@ -8,3 +8,13 @@ export const AXIOS = axios.create({
     Accept: 'application/json',
   },
 });
+
+/**
+ * @description ピクセル感じの昔ながらのイメージ
+ */
+export const baseImageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
+
+/**
+ * @description 画質のいい最新のイメージ
+ */
+// export const baseImageUrl = 'https://pokeres.bastionbot.org/images/pokemon/';
