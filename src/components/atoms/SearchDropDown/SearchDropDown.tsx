@@ -44,6 +44,8 @@ const DropDown = styled.ul`
   border: 3px solid #bdc3c7;
   border-radius: 8px;
   top: calc(100% + 8px);
+  max-height: 40vh;
+  overflow: scroll;
 `;
 
 const PokemonTypeOption = styled.li`
