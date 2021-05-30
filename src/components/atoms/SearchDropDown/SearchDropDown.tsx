@@ -70,8 +70,7 @@ export const SearchDropDown = ({ options, headingText, onClick }: Props) => {
   return (
     <Container>
       <Heading onClick={() => setIsDropDownOpened(!isDropDownOpened)}>{selectedItem}</Heading>
-      {/* todo: 빈 배열일 땐 클릭해도 아무것도 안보이게 하기 */}
-      {isDropDownOpened && (
+      {isDropDownOpened && options.length !== 0 && (
         <DropDown>
           {options.map((option) => {
             const id = shortid.generate();
