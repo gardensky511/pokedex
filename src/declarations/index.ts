@@ -7,3 +7,5 @@ export type ThunkAPI = {
     errorMessage: string;
   };
 };
+
+export type EmptyStringOf<T> = '' | T;
