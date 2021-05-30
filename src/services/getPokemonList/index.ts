@@ -11,12 +11,15 @@ import {
 export const getPokemonList = async () => AXIOS.get<GetPokemonListResponse>('/pokemon');
 
 /**
- * @description フィルタリングされたポケモンリスト取得
+ * @description color、habitat でフィルタリングされたポケモンリスト取得
  */
 export const getFilteredPokemonList = async (category: string) => {
   return AXIOS.get<FilteredPokemonListResponse>(`/${category}`);
 };
 
+/**
+ * @description type でフィルタリングされたポケモンリスト取得
+ */
 export const getFilteredPokemonListByType = async (category: string) => {
   return AXIOS.get<FilteredPokemonListByTypeResponse>(`/${category}`);
 };
