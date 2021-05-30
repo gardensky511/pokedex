@@ -28,6 +28,15 @@ const Heading = styled.p`
   justify-content: center;
 `;
 
+const NoResult = styled.div`
+  font-size: 36px;
+  text-align: center;
+  margin-top: 100px;
+  color: #bdc3c7;
+  font-weight: 900;
+  line-height: 2;
+`;
+
 export const Home = () => {
   const pokemonList = useSelector(pokemonListSelector);
 
@@ -36,18 +45,26 @@ export const Home = () => {
     dispatch(fetchPokemonList());
   }, []);
 
+  console.log(pokemonList);
+
   return (
     <Container>
-      <Heading>
-        <span>Welcome To Pokedex!</span>
-      </Heading>
+      <Heading>Welcome To Pokedex!</Heading>
       <SearchArea />
-      <List>
-        {pokemonList.map((pokemonListItem) => {
-          const { id, name, imageUrl } = pokemonListItem;
-          return <ListCard id={id} name={name} imageUrl={imageUrl} key={id} />;
-        })}
-      </List>
+      {pokemonList.length !== 0 ? (
+        <List>
+          {pokemonList.map((pokemonListItem) => {
+            const { id, name, imageUrl } = pokemonListItem;
+            return <ListCard id={id} name={name} imageUrl={imageUrl} key={id} />;
+          })}
+        </List>
+      ) : (
+        <NoResult>
+          Sorry, No Results
+          <br />
+          (°ロ°)
+        </NoResult>
+      )}
     </Container>
   );
 };
