@@ -15,6 +15,11 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 20px 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #d2d7da;
+  }
 `;
 
 const Name = styled.p`
