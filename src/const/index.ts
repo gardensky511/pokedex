@@ -21,7 +21,6 @@ export const SEARCH_BY_CATEGORY = {
     'unknown',
     'shadow',
   ],
-  gender: ['female', 'male', 'genderless'],
   'pokemon-color': ['black', 'blue', 'brown', 'gray', 'green', 'pink', 'purple', 'red', 'white', 'yellow'],
   'pokemon-habitat': [
     'cave',
