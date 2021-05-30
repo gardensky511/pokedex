@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import shortid from 'shortid';
 import { useSelector } from '../../../redux/store';
 import { majorCategorySelector } from '../../../redux/selectors/search';
 
@@ -72,17 +73,21 @@ export const SearchDropDown = ({ options, headingText, onClick }: Props) => {
       {/* todo: 빈 배열일 땐 클릭해도 아무것도 안보이게 하기 */}
       {isDropDownOpened && (
         <DropDown>
-          {options.map((option) => (
-            <PokemonTypeOption
-              onClick={() => {
-                setIsDropDownOpened(false);
-                setSelectedItem(option);
-                onClick(majorCategory, option);
-              }}
-            >
-              {option}
-            </PokemonTypeOption>
-          ))}
+          {options.map((option) => {
+            const id = shortid.generate();
+            return (
+              <PokemonTypeOption
+                key={id}
+                onClick={() => {
+                  setIsDropDownOpened(false);
+                  setSelectedItem(option);
+                  onClick(majorCategory, option);
+                }}
+              >
+                {option}
+              </PokemonTypeOption>
+            );
+          })}
         </DropDown>
       )}
     </Container>
