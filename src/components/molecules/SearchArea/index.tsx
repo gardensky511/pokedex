@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { SearchDropDown } from '../../atoms/SearchDropDown/SearchDropDown';
+import { SearchDropDown } from '../../atoms/SearchDropDown';
 import { MAJOR_CATEGORY_OF_SEARCH } from '../../../const';
 import { smallCategorySelector } from '../../../redux/selectors/search';
 import { AppDispatch, useSelector } from '../../../redux/store';

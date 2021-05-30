@@ -45,8 +45,6 @@ export const Home = () => {
     dispatch(fetchPokemonList());
   }, []);
 
-  console.log(pokemonList);
-
   return (
     <Container>
       <Heading>Welcome To Pokedex!</Heading>
