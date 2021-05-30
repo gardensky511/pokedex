@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ThunkAPI } from '../../declarations';
-import { getPokemonList, getFilteredPokemonList } from '../../services/getPokemonList';
+import { getPokemonList, getFilteredPokemonList, getFilteredPokemonListByType } from '../../services/getPokemonList';
 import {
+  FilteredPokemonListByTypeResponse,
   FilteredPokemonListResponse,
   GetPokemonListResponse,
   PokemonListState,
@@ -36,6 +37,20 @@ export const fetchFilteredPokemonList = createAsyncThunk<FilteredPokemonListResp
   },
 );
 
+export const fetchFilteredPokemonByTypeList = createAsyncThunk<FilteredPokemonListByTypeResponse, string, ThunkAPI>(
+  'pokemonList/fetchFilteredPokemonByTypeList',
+  async (category, { rejectWithValue }) => {
+    try {
+      const response = await getFilteredPokemonListByType(category);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue({
+        errorMessage: 'データ取得に失敗しました',
+      });
+    }
+  },
+);
+
 const initialState: PokemonListState = {
   pokemonList: [],
 };
@@ -52,6 +67,12 @@ const slice = createSlice({
       fetchFilteredPokemonList.fulfilled,
       (state, { payload }: PayloadAction<FilteredPokemonListResponse>) => {
         state.pokemonList = payload.pokemon_species;
+      },
+    );
+    builder.addCase(
+      fetchFilteredPokemonByTypeList.fulfilled,
+      (state, { payload }: PayloadAction<FilteredPokemonListByTypeResponse>) => {
+        state.pokemonList = payload.pokemon.map((pokemonObj) => pokemonObj.pokemon);
       },
     );
   },

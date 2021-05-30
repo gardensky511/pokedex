@@ -7,7 +7,7 @@ import { smallCategorySelector } from '../../../redux/selectors/search';
 import { AppDispatch, useSelector } from '../../../redux/store';
 import { MajorCategory } from '../../pages/Home/declarations';
 import { setMajorCategory } from '../../../redux/modules/saerch';
-import { fetchFilteredPokemonList } from '../../../redux/modules/pokemonList';
+import { fetchFilteredPokemonByTypeList, fetchFilteredPokemonList } from '../../../redux/modules/pokemonList';
 
 const Container = styled.div`
   display: flex;
@@ -23,7 +23,8 @@ export const SearchArea = () => {
   };
 
   const dispatchGetFilteredPokemonList = (majorCategory: MajorCategory, option: string) => {
-    dispatch(fetchFilteredPokemonList(`${majorCategory}/${option}`));
+    if (majorCategory === 'type') dispatch(fetchFilteredPokemonByTypeList(`${majorCategory}/${option}`));
+    else dispatch(fetchFilteredPokemonList(`${majorCategory}/${option}`));
   };
 
   return (

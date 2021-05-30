@@ -71,3 +71,18 @@ export type FilteredPokemonListResponse = {
   }>;
   pokemon_species: PokemonList;
 };
+
+export type FilteredPokemonListByTypeResponse = {
+  damage_relations: object;
+  game_indices: Array<object>;
+  generation: object;
+  id: number;
+  move_damage_class: object;
+  moves: Array<object>;
+  name: string;
+  names: Array<object>;
+  pokemon: Array<{
+    pokemon: BasicObject;
+    slot: number;
+  }>;
+};
