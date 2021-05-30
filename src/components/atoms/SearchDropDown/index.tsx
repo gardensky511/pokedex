@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import shortid from 'shortid';
 import { useSelector } from '../../../redux/store';
 import { majorCategorySelector } from '../../../redux/selectors/search';
+import { COLORS } from '../../utils/styles';
 
 const Container = styled.div`
   position: relative;
@@ -20,7 +21,7 @@ const Heading = styled.div`
   flex: 1;
   position: relative;
   margin: 0;
-  border: 3px solid #bdc3c7;
+  border: 3px solid ${COLORS.BDC3C7};
   border-radius: 8px;
 
   &::after {
@@ -40,9 +41,9 @@ const Heading = styled.div`
 const DropDown = styled.ul`
   all: unset;
   position: absolute;
-  background-color: #fff;
+  background-color: ${COLORS.FFF};
   width: 100%;
-  border: 3px solid #bdc3c7;
+  border: 3px solid ${COLORS.BDC3C7};
   border-radius: 8px;
   top: calc(100% + 8px);
   max-height: 40vh;
@@ -53,7 +54,7 @@ const PokemonTypeOption = styled.li`
   list-style: none;
   padding: 15px;
   cursor: pointer;
-  border-bottom: 1px solid #bdc3c7;
+  border-bottom: 1px solid ${COLORS.BDC3C7};
 `;
 
 type Props = {

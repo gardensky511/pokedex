@@ -6,6 +6,7 @@ import { SearchArea } from '../../molecules/SearchArea';
 import { AppDispatch, useSelector } from '../../../redux/store';
 import { pokemonListSelector } from '../../../redux/selectors/pokemonList';
 import { fetchPokemonList } from '../../../redux/modules/pokemonList';
+import { COLORS } from '../../utils/styles';
 
 const List = styled.div`
   display: grid;
@@ -32,7 +33,7 @@ const NoResult = styled.div`
   font-size: 36px;
   text-align: center;
   margin-top: 100px;
-  color: #bdc3c7;
+  color: ${COLORS.BDC3C7};
   font-weight: 900;
   line-height: 2;
 `;

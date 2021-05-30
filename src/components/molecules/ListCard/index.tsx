@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { COLORS } from '../../utils/styles';
 
 type Props = {
   id: number;
@@ -8,7 +9,7 @@ type Props = {
 };
 
 const Container = styled.div`
-  background-color: #ecf0f1;
+  background-color: ${COLORS.ECF0F1};
   border-radius: 12px;
   display: flex;
   flex-wrap: wrap;
@@ -18,7 +19,7 @@ const Container = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: #d2d7da;
+    background-color: ${COLORS.D2D7DA};
   }
 `;
 
