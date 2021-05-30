@@ -37,6 +37,7 @@ const Id = styled.div`
 `;
 
 export const ListCard = ({ id, name, imageUrl }: Props) => {
+  // todo: 클릭시 상세페이지 모달 표시 구현
   return (
     <Container>
       <Id>#{id}</Id>
