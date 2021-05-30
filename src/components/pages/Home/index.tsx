@@ -7,7 +7,6 @@ import { pokemonListSelector } from '../../../redux/selectors/pokemonList';
 
 export const HomeContainer = () => {
   const pokemonList = useSelector(pokemonListSelector);
-  console.log(pokemonList);
 
   const dispatch: AppDispatch = useDispatch();
   useEffect(() => {

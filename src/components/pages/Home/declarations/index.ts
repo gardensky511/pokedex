@@ -62,7 +62,7 @@ export type SearchCategory = {
 /**
  * @description フィルタリングしてAPIから取得したポケモンリストの型
  */
-export type GetFilteredPokemonListResponse = {
+export type FilteredPokemonListResponse = {
   id: number;
   name: string;
   names: Array<{

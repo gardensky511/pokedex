@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ThunkAPI } from '../../declarations';
 import { getPokemonList, getFilteredPokemonList } from '../../services/getPokemonList';
 import {
-  GetFilteredPokemonListResponse,
+  FilteredPokemonListResponse,
   GetPokemonListResponse,
   PokemonListState,
 } from '../../components/pages/Home/declarations';
@@ -22,7 +22,7 @@ export const fetchPokemonList = createAsyncThunk<GetPokemonListResponse, undefin
 );
 
 // todo: type, gender 는 리스폰스 타입이 달라서 따로 다뤄야될 듯
-export const fetchFilteredPokemonList = createAsyncThunk<GetFilteredPokemonListResponse, string, ThunkAPI>(
+export const fetchFilteredPokemonList = createAsyncThunk<FilteredPokemonListResponse, string, ThunkAPI>(
   'pokemonList/fetchFilteredPokemonList',
   async (category, { rejectWithValue }) => {
     try {
@@ -50,7 +50,7 @@ const slice = createSlice({
     });
     builder.addCase(
       fetchFilteredPokemonList.fulfilled,
-      (state, { payload }: PayloadAction<GetFilteredPokemonListResponse>) => {
+      (state, { payload }: PayloadAction<FilteredPokemonListResponse>) => {
         state.pokemonList = payload.pokemon_species;
       },
     );
