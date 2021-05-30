@@ -50,6 +50,7 @@ export const Home = () => {
     <Container>
       <Heading>Welcome To Pokedex!</Heading>
       <SearchArea />
+      {/* todo: 로딩 처리 추가 */}
       {pokemonList.length !== 0 ? (
         <List>
           {pokemonList.map((pokemonListItem) => {
@@ -64,6 +65,7 @@ export const Home = () => {
           (°ロ°)
         </NoResult>
       )}
+      {/* todo: 더보기 추가 */}
     </Container>
   );
 };
