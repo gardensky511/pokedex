@@ -22,7 +22,7 @@ export const fetchPokemonList = createAsyncThunk<GetPokemonListResponse, undefin
   },
 );
 
-// todo: type, gender 는 리스폰스 타입이 달라서 따로 다뤄야될 듯
+// todo: type はレスポンスタイプが違くて一旦分けたけど本当にこれでいいのか(優先度：高)
 export const fetchFilteredPokemonList = createAsyncThunk<FilteredPokemonListResponse, string, ThunkAPI>(
   'pokemonList/fetchFilteredPokemonList',
   async (category, { rejectWithValue }) => {

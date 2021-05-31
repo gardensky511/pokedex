@@ -24,7 +24,7 @@ export const pokemonDetailSelector = createSelector<
         }),
         types: types.map((type) => type.type.name),
         weight,
-        // todo: 技配列からランダムに5つを選ぶようにする
+        // todo: 技配列からランダムに5つを選ぶようにする(優先度：中)
         moves: moves.map((move) => move.move.name).slice(0, 5),
       },
       isModalOpened,

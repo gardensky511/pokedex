@@ -8,6 +8,8 @@ import { pokemonListSelector } from '../../../redux/selectors/pokemonList';
 import { fetchPokemonList } from '../../../redux/modules/pokemonList';
 import { COLORS } from '../../utils/styles';
 
+// todo:レスポンス対応追加(優先度：下)
+
 const List = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -50,7 +52,7 @@ export const Home = () => {
     <Container>
       <Heading>Welcome To Pokedex!</Heading>
       <SearchArea />
-      {/* todo: 로딩 처리 추가 */}
+      {/* todo: ローディング中表示実装(優先度：中) */}
       {pokemonList.length !== 0 ? (
         <List>
           {pokemonList.map((pokemonListItem) => {
@@ -65,7 +67,7 @@ export const Home = () => {
           (°ロ°)
         </NoResult>
       )}
-      {/* todo: 더보기 추가 */}
+      {/* todo: 無限スクロール追加(優先度：下) */}
     </Container>
   );
 };

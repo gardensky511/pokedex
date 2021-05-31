@@ -38,7 +38,7 @@ const Id = styled.div`
 `;
 
 export const ListCard = ({ id, name, imageUrl }: Props) => {
-  // todo: 클릭시 상세페이지 모달 표시 구현
+  // todo:ポケモン詳細モーダル実装(優先度：中)
   return (
     <Container>
       <Id>#{id}</Id>

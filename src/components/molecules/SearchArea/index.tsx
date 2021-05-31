@@ -18,6 +18,7 @@ export const SearchArea = () => {
   const smallCategory = useSelector(smallCategorySelector);
   const dispatch: AppDispatch = useDispatch();
 
+  // todo: ここを何とかする(優先度：高)
   const dispatchSetMajorCategory = (_: undefined, option: MajorCategory) => {
     dispatch(setMajorCategory(option));
   };
@@ -29,12 +30,13 @@ export const SearchArea = () => {
 
   return (
     <Container>
+      {/* todo: フリーキーワード検索機能実装(優先度：下) */}
       <SearchDropDown
         options={MAJOR_CATEGORY_OF_SEARCH}
         headingText="Choose Major Category"
         onClick={dispatchSetMajorCategory}
       />
-
+      {/* todo: 大カテゴリが選択されてない場合は小カテゴリを非活性化にする(優先度：中) */}
       <SearchDropDown
         options={smallCategory || []}
         headingText="Choose Small Category"

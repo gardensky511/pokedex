@@ -8,7 +8,7 @@ export const majorCategorySelector = createSelector<RootState, MajorCategory, Ma
   (majorCategory) => majorCategory,
 );
 
-// todo: 반환값 타입 지정하면 에러뜨는 거 수정
+// todo: 第3型パラメータを指定したら出るエラー解決(優先度：高)
 export const smallCategorySelector = createSelector<RootState, MajorCategory, any>(
   (state) => state.search.majorCategory,
   (majorCategory) => {
