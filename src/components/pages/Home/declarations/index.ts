@@ -2,7 +2,7 @@ import { SEARCH_BY_CATEGORY } from '../../../../const';
 import { EmptyStringOf } from '../../../../declarations';
 
 /**
- * @description 基本的なオブジェクトの型
+ * @description APIレスポンスでよく使われるオブジェクトの型
  */
 export type BasicObject = {
   name: string;
@@ -10,7 +10,12 @@ export type BasicObject = {
 };
 
 /**
- * @description ポケモンリストを返すAPIのレスポンスの型
+ * @description ポケモンリストの型
+ */
+export type PokemonList = Array<BasicObject>;
+
+/**
+ * @description 初期ポケモンリストを返すAPIのレスポンス型
  */
 export type GetPokemonListResponse = {
   count: number;
@@ -20,17 +25,12 @@ export type GetPokemonListResponse = {
 };
 
 /**
- * @description GetPokemonListResponse から results だけピックした型
+ * @description ポケモンリストのstate型
  * @param pokemonList - ポケモンリスト
  */
 export type PokemonListState = {
   pokemonList: PokemonList;
 };
-
-/**
- * @description ポケモンリストの型
- */
-export type PokemonList = Array<BasicObject>;
 
 /**
  * @description 整形したポケモンリストの型
@@ -50,7 +50,7 @@ export type FormattedPokemonList = Array<{
 export type MajorCategory = EmptyStringOf<keyof typeof SEARCH_BY_CATEGORY>;
 
 /**
- * @description 検索カテゴリの型
+ * @description 検索カテゴリのstate型
  * @property majorCategory - 大カテゴリ
  * @property smallCategory - 小カテゴリ
  */
@@ -60,7 +60,7 @@ export type SearchCategory = {
 };
 
 /**
- * @description フィルタリングしてAPIから取得したポケモンリストの型
+ * @description フィルタリングされたポケモンリストを返すAPIのレスポンス型
  */
 export type FilteredPokemonListResponse = {
   id: number;
@@ -72,6 +72,9 @@ export type FilteredPokemonListResponse = {
   pokemon_species: PokemonList;
 };
 
+/**
+ * @description タイプフィルタリングされたポケモンリストを返すAPIのレスポンス型
+ */
 export type FilteredPokemonListByTypeResponse = {
   damage_relations: object;
   game_indices: Array<object>;
@@ -87,6 +90,9 @@ export type FilteredPokemonListByTypeResponse = {
   }>;
 };
 
+/**
+ * @description ポケモン詳細情報を返すAPIのレスポンス型
+ */
 export type GetPokemonDetailResponse = {
   abilities: Array<{
     ability: BasicObject;
@@ -122,11 +128,17 @@ export type GetPokemonDetailResponse = {
   weight: number;
 };
 
+/**
+ * @description ポケモン詳細情報のstate型
+ */
 export type GetPokemonDetailState = {
   pokemonDetail: GetPokemonDetailResponse;
   isModalOpened: boolean;
 };
 
+/**
+ * @description 整形したポケモン詳細情報の型
+ */
 export type FormattedPokemonDetail = {
   pokemonDetail: {
     abilities: Array<string>;
