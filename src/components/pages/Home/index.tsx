@@ -10,36 +10,6 @@ import { COLORS } from '../../utils/styles';
 
 // todo:レスポンス対応追加(優先度：下)
 
-const List = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 15px;
-`;
-
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 70px 0;
-`;
-
-const Heading = styled.p`
-  font-size: 36px;
-  font-weight: 900;
-  text-align: center;
-  margin-bottom: 50px;
-  display: flex;
-  justify-content: center;
-`;
-
-const NoResult = styled.div`
-  font-size: 36px;
-  text-align: center;
-  margin-top: 100px;
-  color: ${COLORS.BDC3C7};
-  font-weight: 900;
-  line-height: 2;
-`;
-
 export const Home = () => {
   const pokemonList = useSelector(pokemonListSelector);
 
@@ -71,3 +41,33 @@ export const Home = () => {
     </Container>
   );
 };
+
+const List = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+`;
+
+const Container = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 0;
+`;
+
+const Heading = styled.p`
+  font-size: 36px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+`;
+
+const NoResult = styled.div`
+  font-size: 36px;
+  text-align: center;
+  margin-top: 100px;
+  color: ${COLORS.BDC3C7};
+  font-weight: 900;
+  line-height: 2;
+`;

@@ -8,6 +8,17 @@ type Props = {
   imageUrl: string;
 };
 
+export const ListCard = ({ id, name, imageUrl }: Props) => {
+  // todo:ポケモン詳細モーダル実装(優先度：中)
+  return (
+    <Container>
+      <Id>#{id}</Id>
+      <Image src={imageUrl} alt={name} />
+      <Name>{name[0].toUpperCase() + name.slice(1)}</Name>
+    </Container>
+  );
+};
+
 const Container = styled.div`
   background-color: ${COLORS.ECF0F1};
   border-radius: 12px;
@@ -36,14 +47,3 @@ const Id = styled.div`
   font-weight: 900;
   font-size: 14px;
 `;
-
-export const ListCard = ({ id, name, imageUrl }: Props) => {
-  // todo:ポケモン詳細モーダル実装(優先度：中)
-  return (
-    <Container>
-      <Id>#{id}</Id>
-      <Image src={imageUrl} alt={name} />
-      <Name>{name[0].toUpperCase() + name.slice(1)}</Name>
-    </Container>
-  );
-};

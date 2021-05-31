@@ -5,6 +5,43 @@ import { useSelector } from '../../../redux/store';
 import { majorCategorySelector } from '../../../redux/selectors/search';
 import { COLORS } from '../../utils/styles';
 
+type Props = {
+  options: Array<string>;
+  headingText: string;
+  onClick: any;
+};
+
+export const SearchDropDown = ({ options, headingText, onClick }: Props) => {
+  const [isDropDownOpened, setIsDropDownOpened] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(headingText);
+  const majorCategory = useSelector(majorCategorySelector);
+
+  return (
+    <Container>
+      <Heading onClick={() => setIsDropDownOpened(!isDropDownOpened)}>{selectedItem}</Heading>
+      {isDropDownOpened && options.length !== 0 && (
+        <DropDown>
+          {options.map((option) => {
+            const id = shortid.generate();
+            return (
+              <PokemonTypeOption
+                key={id}
+                onClick={() => {
+                  setIsDropDownOpened(false);
+                  setSelectedItem(option);
+                  onClick(majorCategory, option);
+                }}
+              >
+                {option}
+              </PokemonTypeOption>
+            );
+          })}
+        </DropDown>
+      )}
+    </Container>
+  );
+};
+
 const Container = styled.div`
   position: relative;
   flex: 1;
@@ -56,40 +93,3 @@ const PokemonTypeOption = styled.li`
   cursor: pointer;
   border-bottom: 1px solid ${COLORS.BDC3C7};
 `;
-
-type Props = {
-  options: Array<string>;
-  headingText: string;
-  onClick: any;
-};
-
-export const SearchDropDown = ({ options, headingText, onClick }: Props) => {
-  const [isDropDownOpened, setIsDropDownOpened] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(headingText);
-  const majorCategory = useSelector(majorCategorySelector);
-
-  return (
-    <Container>
-      <Heading onClick={() => setIsDropDownOpened(!isDropDownOpened)}>{selectedItem}</Heading>
-      {isDropDownOpened && options.length !== 0 && (
-        <DropDown>
-          {options.map((option) => {
-            const id = shortid.generate();
-            return (
-              <PokemonTypeOption
-                key={id}
-                onClick={() => {
-                  setIsDropDownOpened(false);
-                  setSelectedItem(option);
-                  onClick(majorCategory, option);
-                }}
-              >
-                {option}
-              </PokemonTypeOption>
-            );
-          })}
-        </DropDown>
-      )}
-    </Container>
-  );
-};

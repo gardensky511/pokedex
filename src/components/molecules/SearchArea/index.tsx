@@ -9,11 +9,6 @@ import { MajorCategory } from '../../pages/Home/declarations';
 import { setMajorCategory } from '../../../redux/modules/saerch';
 import { fetchFilteredPokemonByTypeList, fetchFilteredPokemonList } from '../../../redux/modules/pokemonList';
 
-const Container = styled.div`
-  display: flex;
-  margin-bottom: 30px;
-`;
-
 export const SearchArea = () => {
   const smallCategory = useSelector(smallCategorySelector);
   const dispatch: AppDispatch = useDispatch();
@@ -45,3 +40,8 @@ export const SearchArea = () => {
     </Container>
   );
 };
+
+const Container = styled.div`
+  display: flex;
+  margin-bottom: 30px;
+`;
