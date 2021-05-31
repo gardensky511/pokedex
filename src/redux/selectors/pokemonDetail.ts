@@ -11,7 +11,7 @@ export const pokemonDetailSelector = createSelector<
   (state) => state.pokemonDetail.pokemonDetail,
   (state) => state.pokemonDetail.isModalOpened,
   (pokemonDetail, isModalOpened) => {
-    const { abilities, height, id, name, stats, types, weight } = pokemonDetail;
+    const { abilities, height, id, name, stats, types, weight, moves } = pokemonDetail;
 
     return {
       pokemonDetail: {
@@ -24,6 +24,8 @@ export const pokemonDetailSelector = createSelector<
         }),
         types: types.map((type) => type.type.name),
         weight,
+        // todo: 技配列からランダムに5つを選ぶようにする
+        moves: moves.map((move) => move.move.name).slice(0, 5),
       },
       isModalOpened,
     };

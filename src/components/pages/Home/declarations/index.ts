@@ -101,7 +101,10 @@ export type GetPokemonDetailResponse = {
   id: number;
   is_default: boolean;
   location_area_encounters: string;
-  moves: Array<object>;
+  moves: Array<{
+    move: BasicObject;
+    version_group_details: Array<object>;
+  }>;
   name: string;
   order: number;
   past_types: Array<any>;
@@ -136,6 +139,7 @@ export type FormattedPokemonDetail = {
     }>;
     types: Array<string>;
     weight: number;
+    moves: Array<string>;
   };
   isModalOpened: boolean;
 };
