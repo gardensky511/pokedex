@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { ListCard } from '../../molecules/ListCard';
-import { SearchArea } from '../../molecules/SearchArea';
+import { ListCard } from '../../atoms/ListCard';
+import { SearchArea } from '../../organisms/SearchArea';
 import { AppDispatch, useSelector } from '../../../redux/store';
 import { pokemonListSelector } from '../../../redux/selectors/pokemonList';
 import { fetchPokemonList } from '../../../redux/modules/pokemonList';
