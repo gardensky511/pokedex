@@ -47,7 +47,7 @@ export type FormattedPokemonList = Array<{
 /**
  * @description 検索カテゴリの大カテゴリの型
  */
-export type MajorCategory = EmptyStringOf<keyof typeof SEARCH_BY_CATEGORY>;
+export type MajorCategoryText = EmptyStringOf<keyof typeof SEARCH_BY_CATEGORY>;
 
 /**
  * @description 検索カテゴリのstate型
@@ -55,7 +55,7 @@ export type MajorCategory = EmptyStringOf<keyof typeof SEARCH_BY_CATEGORY>;
  * @property smallCategory - 小カテゴリ
  */
 export type SearchCategory = {
-  majorCategory: MajorCategory;
+  majorCategory: MajorCategoryText;
   smallCategory: Array<string>;
 };
 

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { MajorCategory, SearchCategory } from '../../components/pages/Home/declarations';
+import { MajorCategoryText, SearchCategory } from '../../components/pages/Home/declarations';
 
 const initialState: SearchCategory = {
   majorCategory: '',
@@ -10,7 +10,7 @@ const slice = createSlice({
   name: 'search',
   initialState,
   reducers: {
-    setMajorCategory: (state, action: PayloadAction<MajorCategory>) => {
+    setMajorCategory: (state, action: PayloadAction<MajorCategoryText>) => {
       state.majorCategory = action.payload;
     },
   },
