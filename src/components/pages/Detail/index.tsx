@@ -6,6 +6,8 @@ import { AppDispatch, useSelector } from '../../../redux/store';
 import { fetchPokemonDetail } from '../../../redux/modules/pokemonDetail';
 import { pokemonDetailSelector } from '../../../redux/selectors/pokemonDetail';
 
+// todo: Homeに戻ったとき入力してた検索条件を保持するようにする(難易度：下)
+
 export const Detail = ({ match }: RouteComponentProps<{ id: string }>) => {
   const { id } = match.params;
   const dispatch: AppDispatch = useDispatch();

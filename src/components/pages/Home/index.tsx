@@ -8,7 +8,7 @@ import { fetchPokemonList } from '../../../redux/modules/pokemonList';
 import { PokemonList } from '../../molecules/PokemonList';
 import { GuidanceText } from '../../atoms/GuidanceText';
 
-// todo:レスポンス対応追加(優先度：下)
+// todo:レスポンシブ対応追加(優先度：下)
 
 export const Home = () => {
   const { pokemonList, isLoaded } = useSelector(pokemonListSelector);
