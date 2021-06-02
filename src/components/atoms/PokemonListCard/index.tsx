@@ -8,7 +8,7 @@ type Props = {
   imageUrl: string;
 };
 
-export const ListCard = ({ id, name, imageUrl }: Props) => {
+export const PokemonListCard = ({ id, name, imageUrl }: Props) => {
   // todo:ポケモン詳細ページ実装(優先度：中)
   return (
     <Container>
