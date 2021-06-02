@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const ListCard = ({ id, name, imageUrl }: Props) => {
-  // todo:ポケモン詳細モーダル実装(優先度：中)
+  // todo:ポケモン詳細ページ実装(優先度：中)
   return (
     <Container>
       <Id>#{id}</Id>

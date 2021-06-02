@@ -5,12 +5,12 @@ import { AppDispatch, useSelector } from '../../../redux/store';
 import { majorCategorySelector } from '../../../redux/selectors/search';
 import { COLORS } from '../../utils/styles';
 import { fetchFilteredPokemonByTypeList, fetchFilteredPokemonList } from '../../../redux/modules/pokemonList';
-import { MajorCategoryText } from '../../pages/Home/declarations';
+import { MajorCategoryText, SmallCategoryArray } from '../../pages/Home/declarations';
 import { DropDownList } from '../../atoms/DropDownList';
 import { DropDownValue } from '../../atoms/DropDownValue';
 
 type Props = {
-  categories: Array<string>;
+  categories: SmallCategoryArray;
 };
 
 export const SmallCategory = ({ categories }: Props) => {
@@ -26,7 +26,7 @@ export const SmallCategory = ({ categories }: Props) => {
           if (!majorCategory) return;
           setIsDropDownOpened(!isDropDownOpened);
         }}
-        text={majorCategory ? selectedItem || 'Choose Small Category' : '<= Plase Choose it'}
+        text={majorCategory ? selectedItem || 'Choose Small Category' : '<= Plz Do It First'}
       />
       {isDropDownOpened && categories.length !== 0 && (
         <DropDownList
