@@ -4,7 +4,7 @@ import { MAJOR_CATEGORY_OF_SEARCH } from '../../../const';
 import { smallCategorySelector } from '../../../redux/selectors/search';
 import { useSelector } from '../../../redux/store';
 import { MajorCategory } from '../../molecules/MajorCategory';
-import { SmallCategory } from '../../molecules/smallCategory';
+import { SmallCategory } from '../../molecules/SmallCategory';
 
 export const SearchArea = () => {
   const smallCategory = useSelector(smallCategorySelector);
