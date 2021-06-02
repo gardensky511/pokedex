@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ThunkAPI } from '../../declarations';
-import { GetPokemonDetailResponse, GetPokemonDetailState } from '../../components/pages/Home/declarations';
+import { GetPokemonDetailResponse, GetPokemonDetailState } from '../../components/pages/Detail/declarations';
 import { getPokemonDetail } from '../../services/getPokemonDetail';
 
 export const fetchPokemonDetail = createAsyncThunk<GetPokemonDetailResponse, number, ThunkAPI>(
@@ -38,17 +38,12 @@ const initialState: GetPokemonDetailState = {
     types: [],
     weight: 0,
   },
-  isModalOpened: false,
 };
 
 const slice = createSlice({
   name: 'pokemonDetail',
   initialState,
-  reducers: {
-    setModalDisplay: (state, { payload }: PayloadAction<boolean>) => {
-      state.isModalOpened = payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchPokemonDetail.fulfilled, (state, { payload }: PayloadAction<GetPokemonDetailResponse>) => {
       state.pokemonDetail = payload;
@@ -57,4 +52,3 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
-export const { setModalDisplay } = slice.actions;
