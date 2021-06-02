@@ -8,7 +8,7 @@ export const majorCategorySelector = createSelector<RootState, MajorCategoryText
   (majorCategory) => majorCategory,
 );
 
-// todo: 第3型パラメータを指定したら出るエラー解決(優先度：高)
+// todo: 第3型パラメータを Array<string> に指定したら出るエラー解決(優先度：高)
 export const smallCategorySelector = createSelector<RootState, MajorCategoryText, any>(
   (state) => state.search.majorCategory,
   (majorCategory) => {

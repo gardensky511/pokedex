@@ -22,7 +22,6 @@ export const fetchPokemonList = createAsyncThunk<GetPokemonListResponse, undefin
   },
 );
 
-// todo: type はレスポンスタイプが違くて一旦分けたけど本当にこれでいいのか(優先度：高)
 export const fetchFilteredPokemonList = createAsyncThunk<FilteredPokemonListResponse, string, ThunkAPI>(
   'pokemonList/fetchFilteredPokemonList',
   async (category, { rejectWithValue }) => {

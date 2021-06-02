@@ -10,6 +10,7 @@ import {
  */
 export const getPokemonList = async () => AXIOS.get<GetPokemonListResponse>('/pokemon');
 
+// todo: type はレスポンスタイプが違くて一旦分けたけど本当にこれでいいのか(優先度：高)
 /**
  * @description color、habitat でフィルタリングされたポケモンリスト取得
  */
