@@ -4,7 +4,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { COLORS } from '../../utils/styles';
 
 type Props = {
-  onClick: any; // todo: 型指定する
+  onClick: () => void;
   text: string;
 };
 

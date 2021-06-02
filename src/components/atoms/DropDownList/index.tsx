@@ -5,7 +5,7 @@ import { COLORS } from '../../utils/styles';
 
 type Props = {
   items: Array<string>;
-  onClick: any; // todo: 型指定する
+  onClick: (item: any) => void;
 };
 
 export const DropDownList = ({ items, onClick }: Props) => {
