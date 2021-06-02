@@ -12,7 +12,6 @@ export const majorCategorySelector = createSelector<RootState, MajorCategoryText
 export const smallCategorySelector = createSelector<RootState, MajorCategoryText, any>(
   (state) => state.search.majorCategory,
   (majorCategory) => {
-    if (majorCategory === '') return majorCategory;
-    return SEARCH_BY_CATEGORY[majorCategory];
+    return majorCategory !== '' ? SEARCH_BY_CATEGORY[majorCategory] : [];
   },
 );
