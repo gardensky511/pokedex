@@ -52,29 +52,41 @@ export const fetchFilteredPokemonByTypeList = createAsyncThunk<FilteredPokemonLi
 
 const initialState: PokemonListState = {
   pokemonList: [],
+  isLoaded: false,
 };
 
 const slice = createSlice({
   name: 'pokemonList',
   initialState,
-  reducers: {},
+  reducers: {
+    setIsLoaded: (state, action) => {
+      state.isLoaded = action.payload;
+    },
+  },
   extraReducers: (builder) => {
+    builder.addCase(fetchFilteredPokemonList.pending, (state, { payload }) => {
+      state.isLoaded = false;
+    });
     builder.addCase(fetchPokemonList.fulfilled, (state, { payload }: PayloadAction<GetPokemonListResponse>) => {
       state.pokemonList = payload.results;
+      state.isLoaded = true;
     });
     builder.addCase(
       fetchFilteredPokemonList.fulfilled,
       (state, { payload }: PayloadAction<FilteredPokemonListResponse>) => {
         state.pokemonList = payload.pokemon_species;
+        state.isLoaded = true;
       },
     );
     builder.addCase(
       fetchFilteredPokemonByTypeList.fulfilled,
       (state, { payload }: PayloadAction<FilteredPokemonListByTypeResponse>) => {
         state.pokemonList = payload.pokemon.map((pokemonObj) => pokemonObj.pokemon);
+        state.isLoaded = true;
       },
     );
   },
 });
 
+export const { setIsLoaded } = slice.actions;
 export default slice.reducer;

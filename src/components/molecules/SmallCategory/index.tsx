@@ -4,7 +4,11 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch, useSelector } from '../../../redux/store';
 import { majorCategorySelector } from '../../../redux/selectors/search';
 import { COLORS } from '../../utils/styles';
-import { fetchFilteredPokemonByTypeList, fetchFilteredPokemonList } from '../../../redux/modules/pokemonList';
+import {
+  fetchFilteredPokemonByTypeList,
+  fetchFilteredPokemonList,
+  setIsLoaded,
+} from '../../../redux/modules/pokemonList';
 import { MajorCategoryText } from '../../pages/Home/declarations';
 import { DropDownList } from '../../atoms/DropDownList';
 import { DropDownValue } from '../../atoms/DropDownValue';
@@ -36,6 +40,7 @@ export const SmallCategory = ({ categories }: Props) => {
             else dispatch(fetchFilteredPokemonList(`${majorCategory}/${category}`));
             setIsDropDownOpened(false);
             setSelectedItem(category);
+            setIsLoaded(false);
           }}
         />
       )}

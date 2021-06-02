@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { ListCard } from '../../atoms/ListCard';
 import { SearchArea } from '../../organisms/SearchArea';
 import { AppDispatch, useSelector } from '../../../redux/store';
 import { pokemonListSelector } from '../../../redux/selectors/pokemonList';
 import { fetchPokemonList } from '../../../redux/modules/pokemonList';
-import { COLORS } from '../../utils/styles';
+import { PokemonList } from '../../molecules/PokemonList';
+import { GuidanceText } from '../../atoms/GuidanceText';
 
 // todo:レスポンス対応追加(優先度：下)
 
 export const Home = () => {
-  const pokemonList = useSelector(pokemonListSelector);
+  const { pokemonList, isLoaded } = useSelector(pokemonListSelector);
 
   const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
@@ -22,31 +22,11 @@ export const Home = () => {
     <Container>
       <Heading>Welcome To Pokedex!</Heading>
       <SearchArea />
-      {/* todo: ローディング中表示実装(優先度：中) */}
-      {pokemonList.length !== 0 ? (
-        <List>
-          {pokemonList.map((pokemonListItem) => {
-            const { id, name, imageUrl } = pokemonListItem;
-            return <ListCard id={id} name={name} imageUrl={imageUrl} key={id} />;
-          })}
-        </List>
-      ) : (
-        <NoResult>
-          Sorry, No Results
-          <br />
-          (°ロ°)
-        </NoResult>
-      )}
+      {isLoaded ? <PokemonList pokemonList={pokemonList} /> : <GuidanceText text="Loading..ʕ•́ᴥ•̀ʔ" />}
       {/* todo: 無限スクロール追加(優先度：下) */}
     </Container>
   );
 };
-
-const List = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 15px;
-`;
 
 const Container = styled.div`
   max-width: 1200px;
@@ -61,13 +41,4 @@ const Heading = styled.p`
   margin-bottom: 50px;
   display: flex;
   justify-content: center;
-`;
-
-const NoResult = styled.div`
-  font-size: 36px;
-  text-align: center;
-  margin-top: 100px;
-  color: ${COLORS.BDC3C7};
-  font-weight: 900;
-  line-height: 2;
 `;

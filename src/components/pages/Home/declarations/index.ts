@@ -30,6 +30,7 @@ export type GetPokemonListResponse = {
  */
 export type PokemonListState = {
   pokemonList: PokemonList;
+  isLoaded: boolean;
 };
 
 /**
@@ -38,6 +39,11 @@ export type PokemonListState = {
  * @property imageUrl - 画像Url
  * @property id - 図鑑番号
  */
+export type FormattedPokemonListState = {
+  pokemonList: FormattedPokemonList;
+  isLoaded: boolean;
+};
+
 export type FormattedPokemonList = Array<{
   name: string;
   imageUrl: string;
