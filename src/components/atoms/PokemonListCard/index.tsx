@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { COLORS } from '../../utils/styles';
 
 type Props = {
@@ -11,11 +12,13 @@ type Props = {
 export const PokemonListCard = ({ id, name, imageUrl }: Props) => {
   // todo:ポケモン詳細ページ実装(優先度：中)
   return (
-    <Container>
-      <Id>#{id}</Id>
-      <Image src={imageUrl} alt={name} />
-      <Name>{name[0].toUpperCase() + name.slice(1)}</Name>
-    </Container>
+    <Link to={`/detail/${id}`}>
+      <Container>
+        <Id>#{id}</Id>
+        <Image src={imageUrl} alt={name} />
+        <Name>{name[0].toUpperCase() + name.slice(1)}</Name>
+      </Container>
+    </Link>
   );
 };
 
