@@ -26,9 +26,9 @@ export const DropDownList = ({ items, onClick }: Props) => {
 const Container = styled.ul`
   all: unset;
   position: absolute;
-  background-color: ${COLORS.FFF};
+  background-color: ${COLORS.WHITE};
   width: 100%;
-  border: 3px solid ${COLORS.BDC3C7};
+  border: 3px solid ${COLORS.GREY_MEDIUM};
   border-radius: 8px;
   top: calc(100% + 8px);
   max-height: 40vh;
@@ -39,5 +39,5 @@ const Item = styled.li`
   list-style: none;
   padding: 15px;
   cursor: pointer;
-  border-bottom: 1px solid ${COLORS.BDC3C7};
+  border-bottom: 1px solid ${COLORS.GREY_MEDIUM};
 `;

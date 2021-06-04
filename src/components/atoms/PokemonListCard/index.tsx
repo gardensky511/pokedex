@@ -23,7 +23,7 @@ export const PokemonListCard = ({ id, name, imageUrl }: Props) => {
 };
 
 const Container = styled.div`
-  background-color: ${COLORS.ECF0F1};
+  background-color: ${COLORS.GREY_LIGHT};
   border-radius: 12px;
   display: flex;
   flex-wrap: wrap;
@@ -33,7 +33,7 @@ const Container = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: ${COLORS.D2D7DA};
+    background-color: #f7d794;
   }
 `;
 

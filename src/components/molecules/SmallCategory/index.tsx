@@ -51,7 +51,7 @@ export const SmallCategory = ({ categories }: Props) => {
 const Container = styled.div<{ majorCategory: MajorCategoryText }>`
   position: relative;
   flex: 1;
-  background-color: ${({ majorCategory }) => (majorCategory ? COLORS.FFF : COLORS.ECF0F1)};
+  background-color: ${({ majorCategory }) => (majorCategory ? COLORS.WHITE : COLORS.GREY_LIGHT)};
 
   &:not(:last-child) {
     margin-right: 10px;

@@ -14,7 +14,7 @@ const Container = styled.div`
   font-size: 36px;
   text-align: center;
   margin-top: 100px;
-  color: ${COLORS.BDC3C7};
+  color: ${COLORS.GREY_MEDIUM};
   font-weight: 900;
   line-height: 2;
 `;

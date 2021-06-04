@@ -1,6 +1,7 @@
 export const COLORS = {
-  FFF: '#fff',
-  ECF0F1: '#ecf0f1',
-  D2D7DA: '#d2d7da',
-  BDC3C7: '#bdc3c7',
+  WHITE: '#fff',
+  GREY_LIGHT: '#ecf0f1',
+  GREY_MEDIUM: '#bdc3c7',
+  YELLOW: 'rgb(245, 205, 121, 1)',
+  YELLOW_TRANSPARENT: 'rgb(245, 205, 121, 0.5)',
 };

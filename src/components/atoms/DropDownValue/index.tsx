@@ -24,7 +24,7 @@ const Container = styled.div`
   flex: 1;
   position: relative;
   margin: 0;
-  border: 3px solid ${COLORS.BDC3C7};
+  border: 3px solid ${COLORS.GREY_MEDIUM};
   border-radius: 8px;
 `;
 
