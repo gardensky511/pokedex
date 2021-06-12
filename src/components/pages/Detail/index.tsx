@@ -32,11 +32,11 @@ export const Detail = ({ match }: RouteComponentProps<{ id: string }>) => {
             datasets: [
               {
                 label: `${pokemonDetail.name}'s stats`,
-                backgroundColor: COLORS.YELLOW_TRANSPARENT,
-                borderColor: COLORS.YELLOW,
-                pointBorderColor: COLORS.YELLOW,
-                pointHoverBackgroundColor: COLORS.WHITE,
-                pointHoverBorderColor: COLORS.YELLOW,
+                backgroundColor: COLORS.GREY_LIGHT_TRANSPARENT,
+                borderColor: COLORS.GREY_DARK,
+                pointBorderColor: COLORS.GREY_DARK,
+                pointHoverBackgroundColor: COLORS.GREY_LIGHT,
+                pointHoverBorderColor: COLORS.GREY_DARK,
                 pointBorderWidth: 6,
                 data: pokemonDetail.stats.map((stat) => stat.baseStat),
               },

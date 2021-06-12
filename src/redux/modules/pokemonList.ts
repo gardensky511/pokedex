@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ThunkAPI } from '../../declarations';
-import { getPokemonList, getFilteredPokemonList, getFilteredPokemonListByType } from '../../services/getPokemonList';
+import { getPokemonList, getFilteredPokemonList } from '../../services/getPokemonList';
 import {
   FilteredPokemonListByTypeResponse,
   FilteredPokemonListResponse,
@@ -26,7 +26,7 @@ export const fetchFilteredPokemonList = createAsyncThunk<FilteredPokemonListResp
   'pokemonList/fetchFilteredPokemonList',
   async (category, { rejectWithValue }) => {
     try {
-      const response = await getFilteredPokemonList(category);
+      const response = await getFilteredPokemonList<FilteredPokemonListResponse>(category);
       return response.data;
     } catch (error) {
       return rejectWithValue({
@@ -40,7 +40,7 @@ export const fetchFilteredPokemonByTypeList = createAsyncThunk<FilteredPokemonLi
   'pokemonList/fetchFilteredPokemonByTypeList',
   async (category, { rejectWithValue }) => {
     try {
-      const response = await getFilteredPokemonListByType(category);
+      const response = await getFilteredPokemonList<FilteredPokemonListByTypeResponse>(category);
       return response.data;
     } catch (error) {
       return rejectWithValue({

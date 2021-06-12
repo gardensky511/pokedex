@@ -2,9 +2,10 @@ import React from 'react';
 import shortid from 'shortid';
 import styled from 'styled-components';
 import { COLORS } from '../../utils/styles';
+import { SmallCategories } from '../../pages/Home/declarations';
 
 type Props = {
-  items: Array<string>;
+  items: Array<string> | SmallCategories;
   onClick: (item: any) => void;
 };
 

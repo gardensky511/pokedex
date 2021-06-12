@@ -9,3 +9,4 @@ export type ThunkAPI = {
 };
 
 export type EmptyStringOf<T> = '' | T;
+export type EmptyArray = never[];

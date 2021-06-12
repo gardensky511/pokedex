@@ -1,5 +1,5 @@
 import { SEARCH_BY_CATEGORY } from '../../../../const';
-import { EmptyStringOf } from '../../../../declarations';
+import { EmptyArray, EmptyStringOf } from '../../../../declarations';
 
 /**
  * @description APIレスポンスでよく使われるオブジェクトの型
@@ -20,7 +20,7 @@ export type PokemonList = Array<BasicObject>;
 export type GetPokemonListResponse = {
   count: number;
   next: string;
-  previous: null;
+  previous: null | string;
   results: PokemonList;
 };
 
@@ -50,10 +50,14 @@ export type FormattedPokemonList = Array<{
   id: number;
 }>;
 
+type SearchByCategory = typeof SEARCH_BY_CATEGORY;
+
 /**
  * @description 検索カテゴリの大カテゴリの型
  */
 export type MajorCategoryText = EmptyStringOf<keyof typeof SEARCH_BY_CATEGORY>;
+
+export type SmallCategories = SearchByCategory[keyof SearchByCategory] | EmptyArray;
 
 /**
  * @description 検索カテゴリのstate型
@@ -62,7 +66,7 @@ export type MajorCategoryText = EmptyStringOf<keyof typeof SEARCH_BY_CATEGORY>;
  */
 export type SearchCategory = {
   majorCategory: MajorCategoryText;
-  smallCategory: Array<string>;
+  smallCategory: SmallCategories;
 };
 
 /**

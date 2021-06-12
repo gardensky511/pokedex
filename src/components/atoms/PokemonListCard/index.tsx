@@ -33,7 +33,7 @@ const Container = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: #f7d794;
+    background-color: ${COLORS.GREY_MEDIUM};
   }
 `;
 

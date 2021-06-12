@@ -1,37 +1,31 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../../redux/store';
+import { useSelector } from '../../../redux/store';
 import { DropDownList } from '../../atoms/DropDownList';
-import { setMajorCategory } from '../../../redux/modules/saerch';
-import { MajorCategoryText } from '../../pages/Home/declarations';
+import { MajorCategoryText, SmallCategories } from '../../pages/Home/declarations';
 import { DropDownValue } from '../../atoms/DropDownValue';
+import { majorCategorySelector } from '../../../redux/selectors/search';
 
 type Props = {
-  categories: Array<string>;
+  categories: Array<string> | SmallCategories;
+  onClick: (category: MajorCategoryText) => void;
 };
 
-export const MajorCategory = ({ categories }: Props) => {
+export const MajorCategory = ({ categories, onClick }: Props) => {
+  const majorCategory = useSelector(majorCategorySelector);
   const [isDropDownOpened, setIsDropDownOpened] = useState(false);
-  const [selectedItem, setSelectedItem] = useState('');
-  const dispatch: AppDispatch = useDispatch();
+  const handleOnClick = (category: MajorCategoryText) => {
+    setIsDropDownOpened((prev) => !prev);
+    onClick(category);
+  };
 
   return (
     <Container>
       <DropDownValue
-        onClick={() => setIsDropDownOpened(!isDropDownOpened)}
-        text={selectedItem || 'Choose Major Category'}
+        onClick={() => setIsDropDownOpened((prev) => !prev)}
+        text={majorCategory || 'Choose Major Category'}
       />
-      {isDropDownOpened && categories.length !== 0 && (
-        <DropDownList
-          items={categories}
-          onClick={(option: MajorCategoryText) => {
-            dispatch(setMajorCategory(option));
-            setIsDropDownOpened(false);
-            setSelectedItem(option);
-          }}
-        />
-      )}
+      {isDropDownOpened && categories.length !== 0 && <DropDownList items={categories} onClick={handleOnClick} />}
     </Container>
   );
 };

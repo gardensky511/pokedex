@@ -1,49 +1,38 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
-import { AppDispatch, useSelector } from '../../../redux/store';
+import { useSelector } from '../../../redux/store';
 import { majorCategorySelector } from '../../../redux/selectors/search';
 import { COLORS } from '../../utils/styles';
-import {
-  fetchFilteredPokemonByTypeList,
-  fetchFilteredPokemonList,
-  setIsLoaded,
-} from '../../../redux/modules/pokemonList';
-import { MajorCategoryText } from '../../pages/Home/declarations';
+import { setIsLoaded } from '../../../redux/modules/pokemonList';
+import { MajorCategoryText, SmallCategories } from '../../pages/Home/declarations';
 import { DropDownList } from '../../atoms/DropDownList';
 import { DropDownValue } from '../../atoms/DropDownValue';
 
 type Props = {
-  categories: Array<string>;
+  categories: SmallCategories;
+  onClick: (category: string) => void;
+  selectedItem: string;
 };
 
-export const SmallCategory = ({ categories }: Props) => {
-  const [isDropDownOpened, setIsDropDownOpened] = useState(false);
-  const [selectedItem, setSelectedItem] = useState('');
+export const SmallCategory = ({ categories, onClick, selectedItem }: Props) => {
   const majorCategory = useSelector(majorCategorySelector);
-  const dispatch: AppDispatch = useDispatch();
+  const [isDropDownOpened, setIsDropDownOpened] = useState(false);
+  const handleOnClick = (category: string) => {
+    setIsDropDownOpened((prev) => !prev);
+    setIsLoaded(false);
+    onClick(category);
+  };
 
   return (
     <Container majorCategory={majorCategory}>
       <DropDownValue
         onClick={() => {
           if (!majorCategory) return;
-          setIsDropDownOpened(!isDropDownOpened);
+          setIsDropDownOpened((prev) => !prev);
         }}
         text={majorCategory ? selectedItem || 'Choose Small Category' : '<= Plz Do It First'}
       />
-      {isDropDownOpened && categories.length !== 0 && (
-        <DropDownList
-          items={categories}
-          onClick={(category: string) => {
-            if (majorCategory === 'type') dispatch(fetchFilteredPokemonByTypeList(`${majorCategory}/${category}`));
-            else dispatch(fetchFilteredPokemonList(`${majorCategory}/${category}`));
-            setIsDropDownOpened(false);
-            setSelectedItem(category);
-            setIsLoaded(false);
-          }}
-        />
-      )}
+      {isDropDownOpened && categories.length !== 0 && <DropDownList items={categories} onClick={handleOnClick} />}
     </Container>
   );
 };

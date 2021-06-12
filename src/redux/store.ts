@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useSelector as useReduxSelector } from 'react-redux';
 import pokemonListReducer from './modules/pokemonList';
-import searchByCategoryReducer from './modules/saerch';
+import searchByCategoryReducer from './modules/search';
 import pokemonDetailReducer from './modules/pokemonDetail';
 
 export const store = configureStore({
